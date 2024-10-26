@@ -20,11 +20,6 @@ app.get("/", (req, res) => {
   res.send("Welcome to our chat app APIs");
 });
 
-app.post("/authenticate", async (req, res) => { // Create a POST endpoint for auth
-  const { username } = req.body; // Takes username from request body
-  return res.json({ username: username, secret: "sha256..."}); // Returns fake username with password
-});
-
 //Configure port (DEFAULT: 5000)
 const port = process.env.PORT || 5000;
 
