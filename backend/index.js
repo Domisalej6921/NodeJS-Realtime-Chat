@@ -2,7 +2,10 @@
 // Required code to run Node.js
 const express = require("express"); // Runs HTTP Server
 const cors = require("cors");
-const mongoose = require("mongoose"); // Helps connect MongoDB 
+const mongoose = require("mongoose"); // Helps connect MongoDB
+
+// Importing Routes
+const userRoute = require("./Routes/userRoute");
 
 const app = express();
 require("dotenv").config(); // Allows us to use .env file
@@ -10,6 +13,12 @@ require("dotenv").config(); // Allows us to use .env file
 //Adds additional functionality to application
 app.use(express.json());
 app.use(cors({ origin: true })); // Gives us ability to call server from any other origin
+app.use("/api/users", userRoute);
+
+// CRUD Operations (CREATE, READ, UPDATE, DELETE)
+app.get("/", (req, res) => {
+  res.send("Welcome to our chat app APIs");
+});
 
 app.post("/authenticate", async (req, res) => { // Create a POST endpoint for auth
   const { username } = req.body; // Takes username from request body
