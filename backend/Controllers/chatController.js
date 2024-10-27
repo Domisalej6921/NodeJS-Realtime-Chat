@@ -17,7 +17,7 @@ const createChat = async (req, res) => {
     }
 
     const newChat = new chatModel({
-      members: [firstId, secondId],
+      members: [firstId, secondId]
     });
 
     const response = await newChat.save();
@@ -30,7 +30,7 @@ const createChat = async (req, res) => {
 };
 
 const findUserChats = async (req, res) => {
-  const { userId } = req.params.userId;
+  const userId = req.params.userId;
 
   try {
     const chats = await chatModel.find({
