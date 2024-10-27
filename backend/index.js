@@ -7,6 +7,7 @@ const mongoose = require("mongoose"); // Helps connect MongoDB
 // Importing Routes
 const userRoute = require("./Routes/userRoute");
 const chatRoute = require("./Routes/chatRoute");
+const messageRoute = require("./Routes/messageRoute");
 
 const app = express();
 require("dotenv").config(); // Allows us to use .env file
@@ -16,6 +17,7 @@ app.use(express.json());
 app.use(cors({ origin: true })); // Gives us ability to call server from any other origin
 app.use("/api/users", userRoute);
 app.use("/api/chats", chatRoute);
+app.use("/api/messages", messageRoute);
 
 // CRUD Operations (CREATE, READ, UPDATE, DELETE)
 app.get("/", (req, res) => {
