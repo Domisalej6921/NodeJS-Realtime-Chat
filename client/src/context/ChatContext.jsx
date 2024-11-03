@@ -110,6 +110,7 @@ export const ChatContextProvider = ({ children, user }) => {
   return (
     <ChatContext.Provider value={{
         userChats,
+        currentChat,
         isUserChatsLoading,
         userChatsError,
         potentialChats,
